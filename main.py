@@ -33,7 +33,7 @@ def drawzmei(screen, size, list):
                 pygame.draw.circle(screen, pygame.Color("red"), (j * 50 + 25, i * 50 + 25), 24)
                 
                 
-if __name__ == '__main__':
+if __name__=='__main__':
     pygame.init()
     w, h = 300, 300 #map(int, input().split())
     size = w, h
