@@ -35,7 +35,7 @@ def drawzmei(screen, size, list):
                 
 if __name__=='__main__':
     pygame.init()
-    w, h = 300, 300 #map(int, input().split())
+    w, h = 600, 600 #map(int, input().split())
     size = w, h
     list = []
     for i in range(h // 50):
@@ -51,10 +51,11 @@ if __name__=='__main__':
     lis_z = [[0, 2], [0, 1], [0, 0]]
     screen = pygame.display.set_mode(size)
     running = True
-    x = 0
+    x = 1
     y = 0
     drawline(screen, size)
     drawzmei(screen, size, list)
+    ti = time.time()
     while running:
         t = False
         for event in pygame.event.get():
@@ -78,8 +79,8 @@ if __name__=='__main__':
                     x = 1
                     y = 0
                     t = True
-                print(x, y)
-        if t:
+        if t or time.time() - ti >= 1:
+            ti = time.time()
             t = False
             if g[0] + y < 0 or g[1] + x < 0 or g[0] + y == h // 50 or g[1] + x == w // 50:
                 print("Поражение")
@@ -106,9 +107,6 @@ if __name__=='__main__':
                 list[k[0]][k[1]] = 0
             g[0], g[1] = g[0] + y, g[1] + x
             lis_z = [[g[0], g[1]]] + lis_z
-            print(lis_z)
-            for i in list:
-                print(i)
         drawline(screen, size)
         drawzmei(screen, size, list)
         pygame.display.update()
