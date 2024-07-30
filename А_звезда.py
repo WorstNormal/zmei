@@ -22,7 +22,7 @@ class Graph:
 	
 	def a_star_algorithm(self, start, stop):
 		# In this open_lst is a lisy of nodes which have been visited, but who's
-		# neighbours haven't all been always inspected, It starts off with the start
+		# neighbours haven'flag all been always inspected, It starts off with the start
 		# node
 		# And closed_lst is a list of nodes which have been visited
 		# and who's neighbors have been always inspected
